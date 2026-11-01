@@ -38,7 +38,7 @@
     el('dl', {}, el('dt', {}, 'Confirm'), el('dd', {}, signal), el('dt', {}, 'Fix'), el('dd', {}, fix)));
   const stage = (n, name, ...cards) => el('div', { class: 'stage' }, el('h4', {}, el('i', {}, String(n)), name), ...cards);
   P.map.append(el('h2', {}, 'Where an interested customer starts losing momentum'),
-    el('p', { class: 'sub' }, 'Hypotheses for the fictional store, mapped along the paid-traffic journey rather than page by page. On your store, week 1 confirms or kills each one with your analytics, recordings and reviews before anything is redesigned.'),
+    el('p', { class: 'sub' }, 'Hypotheses for the fictional store, mapped along the paid-traffic journey rather than page by page. On your store, the diagnosis confirms or kills each one with your analytics, recordings and reviews before anything is redesigned.'),
     el('div', { class: 'journey' },
       stage(1, 'Ad to landing', hyp('high', 'The ad sells texture; the click lands on a generic collection.', 'Landing-page report by campaign and device: engagement and add-to-cart by entry page.', 'A landing page that continues the ad\'s angle and offer (see Landing page).')),
       stage(2, 'Product page, first screen', hyp('high', 'What it is and why it\'s different sit below the Add to cart button.', `Scroll maps; add-to-cart rate on mobile vs desktop. In the typical layout the description starts at ${B.what.top}px.`, 'One line under the title: what it is and the one difference that matters.'),
@@ -161,27 +161,21 @@
 
   /* ---------------- components ---------------- */
   P.comp.append(el('h2', {}, 'Reusable components, with their states'),
-    el('p', { class: 'sub' }, 'What Phase 3 delivers in Figma: each component with its states and the rule behind it, so your developer builds behaviour, not just a picture. Shown here in the prototype\'s neutral style; the real ones wear your brand.'),
+    el('p', { class: 'sub' }, 'What the high-fidelity design delivers in Figma: each component with its states and the rule behind it, so your developer builds behaviour, not just a picture. Shown here in the prototype\'s neutral style; the real ones wear your brand.'),
     el('iframe', { class: 'comp', src: 'proto/components.html', title: 'Component states', loading: 'lazy' }));
 
   /* ---------------- plan ---------------- */
   P.plan.append(el('h2', {}, 'How I would diagnose your store before redesigning it'),
     el('div', { class: 'grid2' },
-      el('div', { class: 'card' }, el('h3', {}, 'Week 1: diagnosis'), el('ol', { class: 'order' },
+      el('div', { class: 'card' }, el('h3', {}, 'Diagnosis'), el('ol', { class: 'order' },
         el('li', {}, el('b', {}, 'Split the funnel '), 'by device, landing page and new vs returning, to find whether momentum is lost before add to cart (product page) or after it (cart).'),
         el('li', {}, el('b', {}, 'Watch 40-60 mobile sessions '), 'on the landing pages that take the most ad spend, noting where people hesitate, backtrack or open the same accordion twice.'),
         el('li', {}, el('b', {}, 'Read the customers\' words: '), 'reviews, support tickets and on-site search, tagged by objection (taste, texture, price per serving, cancelling).'),
         el('li', {}, el('b', {}, 'Buy every product '), 'on a mid-range Android and an iPhone, starter kit and subscription included, and check the cart, emails and the cancel flow.'),
         el('li', {}, el('b', {}, 'Write the friction map: '), 'each issue with its evidence, its confidence and its likely fix, plus what does not need changing, and the recommended scope.'))),
       el('div', { class: 'card' }, el('h3', {}, 'What I do'),
-        el('ul', { class: 'clean' }, el('li', {}, el('b', {}, 'Strategy and UX: '), 'the diagnosis, the friction map, wireframes.'), el('li', {}, el('b', {}, 'Design: '), 'desktop and mobile in Figma, reusable components with states, developer specs, in your existing brand.'), el('li', {}, el('b', {}, 'Shopify: '), 'Online Store 2.0 sections as an optional Phase 4, or a clean handover to your developer.')),
-        el('p', { class: 'note' }, 'Not included: copywriting beyond structure and microcopy, photography, and analytics engineering.'))),
-    el('h3', { style: 'margin-top:24px' }, 'Initial CRO review, priority product page and one landing page'),
-    el('div', { class: 'phase' },
-      el('div', { class: 'card' }, el('div', { class: 'note' }, 'Phase 1 · weeks 1-1.5'), el('h3', {}, 'Diagnosis'), el('div', { class: 'price' }, '$1,400'), el('p', { class: 'note' }, 'Friction map, mobile and product page findings, landing page opportunity, recommended scope.')),
-      el('div', { class: 'card' }, el('div', { class: 'note' }, 'Phase 2 · weeks 2-3'), el('h3', {}, 'UX and wireframes'), el('div', { class: 'price' }, '$1,400'), el('p', { class: 'note' }, 'Priority product page structure, mobile treatment, campaign landing page, cart tweaks if needed.')),
-      el('div', { class: 'card' }, el('div', { class: 'note' }, 'Phase 3 · weeks 4-5'), el('h3', {}, 'High-fidelity design'), el('div', { class: 'price' }, '$2,000'), el('p', { class: 'note' }, 'Desktop and mobile Figma, components with states, developer specs, brand preserved.'))),
-    el('p', { style: 'margin-top:12px' }, el('b', {}, '$4,800 fixed, 5 weeks. '), el('span', { class: 'note' }, 'If Phase 1 shows the structure is sound, Phases 2-3 stay targeted rather than growing into a redesign.')));
+        el('ul', { class: 'clean' }, el('li', {}, el('b', {}, 'Strategy and UX: '), 'the diagnosis, the friction map, wireframes.'), el('li', {}, el('b', {}, 'Design: '), 'desktop and mobile in Figma, reusable components with states, developer specs, in your existing brand.'), el('li', {}, el('b', {}, 'Shopify: '), 'Online Store 2.0 sections as an optional add-on, or a clean handover to your developer.')),
+        el('p', { class: 'note' }, 'Not included: copywriting beyond structure and microcopy, photography, and analytics engineering.'))));
 
   select(location.hash.slice(1) || 'map');
 })();
