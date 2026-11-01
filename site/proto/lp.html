@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>Campaign landing page (fictional brand)</title><link rel="stylesheet" href="proto.css">
+<style>.hero h1{font-size:27px}.offer{border:1.5px solid var(--accent);border-radius:14px;padding:14px;background:#fcfefd;margin-top:14px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;font-size:12.5px}.steps .img{height:90px;border-radius:10px;margin-bottom:6px}.kit{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.kit div{background:var(--fill);border-radius:10px;padding:10px;font-size:13px}.link{display:block;text-align:center;margin-top:8px;color:var(--ink);font-size:14px;padding:13px 10px}</style></head>
+<body>
+<header class="hdr" style="justify-content:center"><span class="logo">KALMO</span></header>
+<section class="pad hero" data-lp="hero">
+  <h1 data-q="what">Plant protein that mixes smooth in water.</h1>
+  <p class="sub">No chalky aftertaste. 21 g protein, five ingredients.</p>
+  <div class="img" style="height:220px;border-radius:14px;margin-top:12px">Same texture shot as the ad<br>(scene continuity)</div>
+  <div class="offer" data-lp="offer"><b>Try all three flavours</b><div class="small">Starter kit · 6 sachets + shaker · free shipping on this kit</div>
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin:10px 0"><span class="price" data-q="price">14,90 €</span><span class="small">One-time purchase. No subscription.</span></div>
+    <button class="atc" id="cta1" data-lp="cta" data-q="atc">Get the starter kit</button></div>
+  <a class="link" href="after.html?format=kg1">Already know your flavour? See full sizes →</a>
+  <div class="stars" style="text-align:center" data-q="proof">★ 4.7 · 1,284 reviews <span class="ann">placeholder data</span></div>
+</section>
+<section class="sec" data-lp="proof"><h2>The 10-second texture test</h2><div class="steps"><div><div class="img">300 ml water</div>Cold water</div><div><div class="img">1 scoop</div>30 g</div><div><div class="img">Shake</div>10 seconds</div></div></section>
+<section class="sec" data-lp="social"><h2>What people say about the texture</h2>
+  <div class="rv"><div class="small">Mentions: "smooth", "no clumps" · placeholder</div><div class="skel m"></div><div class="skel"></div></div>
+  <div class="rv"><div class="small">Mentions: "in water", "after training" · placeholder</div><div class="skel m"></div><div class="skel s"></div></div></section>
+<section class="sec" data-lp="objections"><h2>Why plant protein often disappoints, and what we changed</h2>
+  <div class="why"><div><i>1</i><span><b>Gritty texture.</b> Finely milled pea isolate, so it dissolves instead of settling.</span></div>
+  <div><i>2</i><span><b>Earthy aftertaste.</b> Cacao and vanilla bean to round it off; or Unflavoured for smoothies.</span></div>
+  <div><i>3</i><span><b>Long ingredient lists.</b> Five ingredients, sweetened with stevia.</span></div></div></section>
+<section class="sec" data-lp="kit"><h2>In the kit</h2><div class="kit"><div>2 × Cacao</div><div>2 × Vanilla bean</div><div>2 × Unflavoured</div><div>1 × shaker</div></div></section>
+<section class="sec" data-lp="next"><h2>After the kit</h2><p>Found your flavour? 1 kg is <b>42,90 €</b>, or <b>38,61 €</b> on a subscription you can pause, skip or cancel online any time. Nothing renews unless you choose it.</p></section>
+<section class="sec" data-lp="faq"><h2>Questions</h2>
+  <details class="acc"><summary>Will I be signed up for a subscription?</summary><p>No. The kit is a one-time purchase.</p></details>
+  <details class="acc"><summary>Does it work with milk too?</summary><p>Yes; water is just where most plant proteins fail.</p></details>
+  <details class="acc"><summary>Allergens</summary><p>Placeholder.</p></details></section>
+<section class="pad" style="padding-bottom:100px"><button class="atc" id="cta2">Get the starter kit · 14,90 €</button></section>
+<footer class="foot" style="padding-bottom:110px">Imprint · Privacy · Terms · <a href="#cancel">Verträge hier kündigen</a></footer>
+<div class="sticky" id="sticky"><div class="sum"><b>14,90 €</b><br>Starter kit · all 3 flavours</div><button class="atc" id="cta3">Get the kit</button></div>
+<div class="drawer" id="drawer" role="dialog" aria-label="Cart"><div class="panel"><div class="dh"><b>Your cart</b><button class="icon" id="close" aria-label="Close cart">✕</button></div>
+  <div class="body"><div class="line"><div class="img">Kit</div><div><b>Starter kit</b><div class="small">3 flavours · one-time · free shipping</div></div><b>14,90 €</b></div></div>
+  <div class="df"><button class="atc">Checkout</button></div></div></div>
+<script>
+const $ = s => document.querySelector(s); window.CART = [];
+const add = () => { if (!CART.length) CART.push({ format: 'kit', price: 14.9 }); $('#drawer').classList.add('on'); };
+['#cta1', '#cta2', '#cta3'].forEach(id => $(id).onclick = add); $('#close').onclick = () => $('#drawer').classList.remove('on');
+function stick() { const r = $('#cta1').getBoundingClientRect(), r2 = $('#cta2').getBoundingClientRect(); const vis = x => x.top >= 0 && x.bottom <= innerHeight; $('#sticky').classList.toggle('on', !vis(r) && !vis(r2) && !$('#drawer').classList.contains('on')); }
+addEventListener('scroll', stick, { passive: true }); stick();
+</script></body></html>

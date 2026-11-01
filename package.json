@@ -1,0 +1,2 @@
+{ "name": "mobile-cro-teardown", "private": true, "version": "1.0.0",
+  "scripts": { "dev": "npx serve site", "measure": "node measure/measure.mjs && python3 build.py", "build": "echo 'static site, nothing to build'" } }

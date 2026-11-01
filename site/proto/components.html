@@ -1,0 +1,28 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow">
+<title>Components (fictional brand)</title><link rel="stylesheet" href="proto.css">
+<style>body{background:#fff}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;padding:18px}.c{border:1px solid var(--line);border-radius:14px;padding:14px}.c h3{margin:0 0 2px;font-size:14px}.spec{font-size:11.5px;color:var(--ink2);margin:0 0 10px;font-family:ui-monospace,Menlo,monospace}.state{font-size:11px;color:var(--muted);margin:10px 0 4px;text-transform:uppercase;letter-spacing:.06em}.sticky{position:static!important;transform:none!important;display:flex!important;border:1px solid var(--line);border-radius:10px}</style></head><body>
+<div class="grid">
+<div class="c"><h3>Size selector</h3><p class="spec">3-up radio cards · min 76px tall · price + per-serving inside the target · tag sits on the border</p>
+  <div class="state">Default (1 kg pre-selected)</div>
+  <div class="seg3"><button class="card" aria-checked="false"><b>Starter kit</b><span class="pr">14,90 €</span><span class="meta">try 3 flavours</span></button><button class="card" aria-checked="false"><b>500 g</b><span class="pr">24,90 €</span><span class="meta">1,56 €/serving</span></button><button class="card" aria-checked="true"><span class="tag">Most chosen</span><b>1 kg</b><span class="pr">42,90 €</span><span class="meta">1,30 €/serving</span></button></div>
+  <div class="state">Kit selected: flavour row hides, subscription replaced by a note</div>
+  <div class="seg3"><button class="card" aria-checked="true"><b>Starter kit</b><span class="pr">14,90 €</span><span class="meta">try 3 flavours</span></button><button class="card" aria-checked="false"><b>500 g</b><span class="pr">24,90 €</span><span class="meta">1,56 €/serving</span></button><button class="card" aria-checked="false"><b>1 kg</b><span class="pr">42,90 €</span><span class="meta">1,30 €/serving</span></button></div>
+  <p class="small">The starter kit is a one-time purchase. Subscriptions start at 500 g, once you know your flavour.</p></div>
+<div class="c"><h3>Purchase option</h3><p class="spec">2-up radio cards · terms always visible (not a tooltip) · frequency chips appear only after "Subscribe"</p>
+  <div class="state">One-time selected</div>
+  <div class="two"><button class="card" aria-checked="true"><b>One-time</b><span class="pr">42,90 €</span></button><button class="card" aria-checked="false"><b>Subscribe</b> <span class="tag">−10%</span><span class="pr">38,61 €</span></button></div>
+  <div class="terms">Subscription: every 4, 6 or 8 weeks. Pause, skip or cancel online any time.</div>
+  <div class="state">Subscribe selected · 6 weeks default</div>
+  <div class="two"><button class="card" aria-checked="false"><b>One-time</b><span class="pr">42,90 €</span></button><button class="card" aria-checked="true"><b>Subscribe</b> <span class="tag">−10%</span><span class="pr">38,61 €</span></button></div>
+  <div class="freq"><button aria-pressed="false">Every 4 wks</button><button aria-pressed="true">Every 6 wks</button><button aria-pressed="false">Every 8 wks</button></div></div>
+<div class="c"><h3>Price block</h3><p class="spec">total + price per kg + per serving on one line · updates with every choice · never behind a tap</p>
+  <div class="state">1 kg · one-time</div><div class="pblock" style="margin:4px 0"><span class="price">42,90 €</span><span class="unit">42,90 €/kg</span><span class="unit">· 1,30 € per serving</span></div>
+  <div class="state">1 kg · subscription</div><div class="pblock" style="margin:4px 0"><span class="price">38,61 €</span><span class="unit">38,61 €/kg</span><span class="unit">· 1,17 € per serving</span></div>
+  <div class="state">Starter kit</div><div class="pblock" style="margin:4px 0"><span class="price">14,90 €</span><span class="unit">mixed kit incl. shaker</span></div>
+  <div class="state">Button echoes the price</div><button class="atc">Add to cart · 38,61 €</button></div>
+<div class="c"><h3>Sticky add to cart</h3><p class="spec">appears whenever the main button is not fully on screen · carries the current choice · hidden while the cart is open</p>
+  <div class="state">Shown</div><div class="sticky"><div class="sum"><b>38,61 €</b><br>1 kg · Vanilla bean · every 8 wks</div><button class="atc">Add</button></div>
+  <h3 style="margin-top:16px">Cart line</h3><p class="spec">subscription named in the line, with its frequency · one shipping message, no upsell wall</p>
+  <div class="small" style="margin-bottom:6px">Free shipping: subscriptions always ship free</div><div class="prog"><i style="width:100%"></i></div>
+  <div class="line"><div class="img">Pack</div><div><b>Plant Protein · 1 kg</b><div class="small">Vanilla bean · Subscription, every 8 weeks</div></div><b>38,61 €</b></div></div>
+</div></body></html>

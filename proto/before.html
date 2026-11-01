@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>BEFORE · typical theme PDP (fictional brand)</title><link rel="stylesheet" href="proto.css"></head>
+<body>
+<div class="bar">Free shipping from €40</div>
+<header class="hdr"><button class="icon" aria-label="Menu">☰</button><span class="logo">KALMO</span><button class="icon" aria-label="Cart">🛍<span class="dot" id="count">0</span></button></header>
+
+<div class="img" style="height:390px" data-q="gallery">Pack shot<br>(1 of 4, square)</div>
+<div class="dots"><i></i><i></i><i></i><i></i></div>
+
+<div class="pad">
+  <h1 data-q="title">Plant Protein</h1>
+  <div class="stars" data-q="proof"><b>★★★★★</b> 1,284 reviews <span class="ann">placeholder</span></div>
+  <div style="margin-top:8px"><span data-q="price"><span class="price" id="price">24,90 €</span> <span class="unit" id="unit">49,80 €/kg</span></span></div>
+  <div class="small">incl. VAT, plus <span class="tip">shipping</span></div>
+
+  <div class="label">Size</div>
+  <div class="pills" id="sizes" data-q="format"><button class="pill" aria-pressed="true" data-f="g500">500 g</button><button class="pill" aria-pressed="false" data-f="kg1">1 kg</button></div>
+
+  <div class="label">Flavour</div>
+  <select id="flavour" aria-label="Flavour" data-q="flavour"><option selected>Cacao</option><option>Vanilla bean</option><option>Unflavoured</option></select>
+
+  <div class="label">Purchase options</div>
+  <div data-q="purchase">
+    <button class="radio" role="radio" aria-checked="true" id="once"><span class="r"></span><span>One-time purchase <b id="pOnce">€24,90</b></span></button>
+    <button class="radio" role="radio" aria-checked="false" id="subs"><span class="r"></span><span>Subscribe &amp; save 10% <b id="pSub">€22,41</b><br><span class="tip">How subscriptions work</span></span></button>
+    <div id="freqWrap" style="display:none;margin-top:8px"><select id="freq" aria-label="Delivery frequency"><option value="">Deliver every…</option><option>4 weeks</option><option>6 weeks</option><option>8 weeks</option></select></div>
+  </div>
+
+  <div class="label">Quantity</div>
+  <div class="qty"><button aria-label="Less">−</button><span>1</span><button aria-label="More">+</button></div>
+  <div style="margin-top:14px"><button class="atc" id="atc" data-q="atc">Add to cart</button><button class="ghost">Buy it now</button></div>
+  <p class="small" id="msg" role="status"></p>
+
+  <p style="margin-top:16px" data-q="what">Our plant protein is crafted from carefully selected pea and rice protein for a complete amino acid profile. Perfect for your active lifestyle, it supports your goals whether you train in the gym or simply want more protein in your day. Enjoy it in water, milk or your favourite smoothie. Vegan, gluten-free and made without artificial sweeteners. Discover the difference quality makes.</p>
+</div>
+<details class="acc" data-q="ingredients"><summary>Ingredients</summary><p>Pea protein isolate, rice protein, cacao, natural flavour, stevia.</p></details>
+<details class="acc"><summary>Nutrition</summary><p>Per 30 g: 21 g protein…</p></details>
+<details class="acc"><summary>How to use</summary><p>Mix 30 g with 300 ml water.</p></details>
+<details class="acc"><summary>Shipping &amp; returns</summary><p>Ships in 1–2 working days.</p></details>
+<div class="pad"><h2>You may also like</h2><div style="display:flex;gap:8px;overflow:hidden"><div class="img" style="width:150px;height:150px;flex:none">Product</div><div class="img" style="width:150px;height:150px;flex:none">Product</div><div class="img" style="width:150px;height:150px;flex:none">Product</div></div></div>
+<div class="pad" data-q="reviews"><h2>Customer reviews</h2><div class="rv"><div class="skel m"></div><div class="skel"></div><div class="skel s"></div></div><div class="rv"><div class="skel m"></div><div class="skel"></div></div><p class="small">Review content: placeholder</p></div>
+<footer class="foot">Shipping · Returns · Imprint · Privacy · Terms</footer>
+<script src="data.js"></script>
+<script>
+const S = { f: 'g500', flavour: 'Cacao', sub: false, freq: '' }; window.CART = [];
+const $ = s => document.querySelector(s);
+function render() {
+  const F = KALMO.formats[S.f], p = F.price, ps = p * (1 - KALMO.subDiscount);
+  $('#price').textContent = eur(S.sub ? ps : p); $('#unit').textContent = perKg(S.sub ? ps : p, F.grams);
+  $('#pOnce').textContent = eur(p); $('#pSub').textContent = eur(ps);
+  document.querySelectorAll('#sizes .pill').forEach(b => b.setAttribute('aria-pressed', b.dataset.f === S.f));
+  $('#once').setAttribute('aria-checked', !S.sub); $('#subs').setAttribute('aria-checked', S.sub); $('#freqWrap').style.display = S.sub ? 'block' : 'none';
+}
+document.querySelectorAll('#sizes .pill').forEach(b => b.onclick = () => { S.f = b.dataset.f; render(); });
+$('#flavour').onchange = e => { S.flavour = e.target.value; };
+$('#once').onclick = () => { S.sub = false; render(); }; $('#subs').onclick = () => { S.sub = true; render(); };
+$('#freq').onchange = e => { S.freq = e.target.value; };
+$('#atc').onclick = () => {
+  if (!S.flavour) { $('#msg').textContent = 'Please choose a flavour.'; return; }
+  if (S.sub && !S.freq) { $('#msg').textContent = 'Please choose a delivery frequency.'; return; }
+  const F = KALMO.formats[S.f]; CART.push({ format: S.f, flavour: S.flavour, sub: S.sub, freq: S.freq, price: S.sub ? F.price * 0.9 : F.price });
+  $('#count').textContent = CART.length; $('#msg').textContent = 'Added to cart.';
+};
+render();
+</script></body></html>
